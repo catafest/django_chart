@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for post in posts %}
+        <article>
+            <div>{{ post.title }}</div>
+            <div>{{ post.content }}</div>
+            <div>{{ post.author }}</div>
+            <div>{{ post.date_posted|date:"F d, Y" }}</div>
+        </article>
+    {% endfor %}
+{% endblock content %}
