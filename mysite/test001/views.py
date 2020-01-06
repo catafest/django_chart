@@ -9,7 +9,10 @@ from django.shortcuts import get_object_or_404
 # for chart 
 from django.views.generic import TemplateView
 from .models import Test001, Snippet
+<<<<<<< HEAD
 from .models import Post
+=======
+>>>>>>> bc492a65a1567cf79182a4058a9a92bce2c4e73f
 #
 #def home_page(request):
 #    return HttpResponse('Home page!')
@@ -25,11 +28,14 @@ def home_page(request):
         'html_items': ['a','b','c','d','e']
     })
 
+<<<<<<< HEAD
 def posts(request):
     context = {
         'posts':Post.objects.all()
     }
     return render(request, 'test001/posts.html', context)
+=======
+>>>>>>> bc492a65a1567cf79182a4058a9a92bce2c4e73f
 
 # define view for chart 
 class Test001ChartView(TemplateView):

@@ -11,9 +11,12 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+<<<<<<< HEAD
 import json 
 with open('/home/mythcat/projects/django/config.json') as config_file:
     config = json.load(config_file)
+=======
+>>>>>>> bc492a65a1567cf79182a4058a9a92bce2c4e73f
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,7 +26,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = config['SECRET_KEY']
+=======
+SECRET_KEY = '(=bz&@d+b5n8ftbm!e=1-b$h0_^5nao!in8u2jz^yy!y0l_$bk'
+>>>>>>> bc492a65a1567cf79182a4058a9a92bce2c4e73f
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
