@@ -17,29 +17,33 @@ from django.contrib import admin
 from django.urls import path
 from test001.views import home_page
 from test001.views import Test001ChartView
-<<<<<<< HEAD
+
 # add Post to urls.py 
 from test001.views import posts
-=======
->>>>>>> bc492a65a1567cf79182a4058a9a92bce2c4e73f
+
+# add index_next to urls.py 
+from test001.views import index_next
+
 #
 from django.urls import include, path
 from rest_framework import routers
 from test001 import views
 
+
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+
+
 
 app_name = 'test001'
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('', home_page, name ='home'),
     path('', Test001ChartView.as_view(), name = 'home'), 
-<<<<<<< HEAD
+
     path('posts/',posts, name = 'posts'),
-=======
->>>>>>> bc492a65a1567cf79182a4058a9a92bce2c4e73f
+    path('<author_id>',views.index_next, name = 'index_next'),
     # Use automatic URL routing
     # Can also include login URLs for the browsable API
     path('', include(router.urls)),

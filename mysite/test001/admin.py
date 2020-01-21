@@ -7,6 +7,7 @@ from .models import Snippet
 # group 
 from django.contrib.auth.models import Group 
 
+from .models import Author, Book 
 
 admin.site.site_header = 'catafest area! '
 """
@@ -23,6 +24,10 @@ admin.site.register(Snippet)
 
 # register to admin area 
 admin.site.register(Test001)
+#
+admin.site.register(Author)
+admin.site.register(Book)
 
 # unregister 
 admin.site.unregister(Group)
+

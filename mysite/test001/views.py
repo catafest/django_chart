@@ -4,15 +4,22 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render
+
 # snippet 
 from django.shortcuts import get_object_or_404
 # for chart 
 from django.views.generic import TemplateView
 from .models import Test001, Snippet
-<<<<<<< HEAD
+
 from .models import Post
-=======
->>>>>>> bc492a65a1567cf79182a4058a9a92bce2c4e73f
+
+# add to views.py Author and Book 
+from .models import Author, Book
+# Author , Book redirect 
+from django.shortcuts import redirect
+
+from django.forms import modelformset_factory, inlineformset_factory
+
 #
 #def home_page(request):
 #    return HttpResponse('Home page!')
@@ -22,20 +29,33 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from mysite.serializers import UserSerializer, GroupSerializer
 
+from .models import Author, Book
+
 def home_page(request):
     return render(request, 'test001/home.html',{
         'name':'CGF',
         'html_items': ['a','b','c','d','e']
     })
 
-<<<<<<< HEAD
+# author and book source code 
+def index_next(request, author_id):
+    author = Author.objects.get(pk=author_id)
+    BookFormset = inlineformset_factory(Author,Book, fields=('book_name',), can_delete=False, extra=1)
+    if request.method == 'POST':
+        formset = BookFormset(request.POST,instance = author)
+        if formset.is_valid():
+            formset.save()
+            return redirect('index_next',author_id = author_id)
+    formset = BookFormset(instance = author)
+    return render(request, 'index_next.html', {'formset': formset})
+
+
+
 def posts(request):
     context = {
         'posts':Post.objects.all()
     }
     return render(request, 'test001/posts.html', context)
-=======
->>>>>>> bc492a65a1567cf79182a4058a9a92bce2c4e73f
 
 # define view for chart 
 class Test001ChartView(TemplateView):
@@ -64,4 +84,3 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
-
