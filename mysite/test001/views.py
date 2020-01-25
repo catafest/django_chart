@@ -29,8 +29,6 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from mysite.serializers import UserSerializer, GroupSerializer
 
-from .models import Author, Book
-
 def home_page(request):
     return render(request, 'test001/home.html',{
         'name':'CGF',
@@ -48,8 +46,6 @@ def index_next(request, author_id):
             return redirect('index_next',author_id = author_id)
     formset = BookFormset(instance = author)
     return render(request, 'index_next.html', {'formset': formset})
-
-
 
 def posts(request):
     context = {

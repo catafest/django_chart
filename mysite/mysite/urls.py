@@ -35,7 +35,6 @@ router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 
 
-
 app_name = 'test001'
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -43,7 +42,7 @@ urlpatterns = [
     path('', Test001ChartView.as_view(), name = 'home'), 
 
     path('posts/',posts, name = 'posts'),
-    path('<author_id>',views.index_next, name = 'index_next'),
+    path('<int:author_id>/',views.index_next, name = 'index_next'),
     # Use automatic URL routing
     # Can also include login URLs for the browsable API
     path('', include(router.urls)),
